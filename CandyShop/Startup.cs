@@ -12,6 +12,7 @@ using CandyShop.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using CandyShop.Models;
 
 namespace CandyShop
 {
@@ -34,6 +35,9 @@ namespace CandyShop
                 .AddEntityFrameworkStores<AppDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
+            services.AddScoped<ICandyRepository, CandyRepository>();
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddScoped<ICandyRepository, CandyRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
